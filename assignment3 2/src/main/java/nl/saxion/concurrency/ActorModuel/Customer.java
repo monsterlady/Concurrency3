@@ -1,4 +1,4 @@
-package nl.saxion.concurrency.Module;
+package nl.saxion.concurrency.ActorModuel;
 
 import akka.actor.AbstractActor;
 

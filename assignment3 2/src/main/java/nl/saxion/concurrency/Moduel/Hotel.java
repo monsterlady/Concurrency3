@@ -1,4 +1,4 @@
-package nl.saxion.concurrency.Module;
+package nl.saxion.concurrency.Moduel;
 
 import java.util.ArrayList;
 import java.util.UUID;

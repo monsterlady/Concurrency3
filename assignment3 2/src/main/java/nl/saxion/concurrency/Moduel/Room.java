@@ -1,4 +1,4 @@
-package nl.saxion.concurrency.Module;
+package nl.saxion.concurrency.Moduel;
 
 public class Room {
     private int numOfRoom;

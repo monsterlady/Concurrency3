@@ -1,4 +1,4 @@
-package nl.saxion.concurrency.Module;
+package nl.saxion.concurrency.Moduel;
 
 import java.time.Instant;
 import java.util.UUID;
