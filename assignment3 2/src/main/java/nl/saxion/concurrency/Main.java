@@ -16,7 +16,6 @@ import com.typesafe.config.ConfigFactory;
 import nl.saxion.concurrency.ActorModuel.Broker;
 import nl.saxion.concurrency.Moduel.Hotel;
 import nl.saxion.concurrency.Moduel.Reservation;
-
 import java.net.InetAddress;
 import java.time.Duration;
 import java.time.LocalDateTime;
@@ -25,39 +24,27 @@ import java.util.*;
 
 public class Main {
     private final CustomRouter allroutes;
-    public static List<Hotel> hotelList = new ArrayList<>();
-
     public static void main(String[] args) throws AskTimeoutException {
         ActorSystem system = ActorSystem.create("TeunKokRuikangXuAssignment3",getConfig(args));
         ActorRef broker = system.actorOf(Props.create(Broker.class,system),"Mybroker");
-
-
-
+        //generate 3 Sample Hotel
         int nrOfHotels = 3;
         for (int i = 0; i < nrOfHotels; i++) {
             Hotel nwHotel = new Hotel("Bestitz:" + (i + 1), 2);
             Broker.getHotelList().add(nwHotel);
-           // ActorRef hotelManager = system.actorOf(Props.create(HotelManager.class, h), "hotel:" + i);
-           // routees.add(new ActorRefRoutee(hotelManager));
         }
-       // routerBroker = new Router(new RoundRobinRoutingLogic(), routees);
 
+        //#server-bootstrapping
         final Http http = Http.get(system);
         final ActorMaterializer materializer = ActorMaterializer.create(system);
-        //#server-bootstrapping
-
-        //ActorRef userRegistryActor = system.actorOf(UserRegistryActor.props(), "userRegistryActor");
-
         //#http-server
         //In order to access all directives we need an instance where the routes are define.
         Main app = new Main(system,broker);
-
+        //#http-server
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = app.createRoute().flow(system, materializer);
         http.bindAndHandle(routeFlow, ConnectHttp.toHost("localhost", 3000), materializer)
         ;
-
         System.out.println("Server online at http://localhost:3000/");
-        //#http-server
 
         //check if reservation overdue
         new Timer().scheduleAtFixedRate(new TimerTask() {
@@ -69,6 +56,7 @@ public class Main {
                     Reservation reservationToRemove = new Reservation();
                     for (Reservation reservation : reservationArrayList) {
                         Duration duration = Duration.between(reservation.getReservationCreatedTime(), LocalDateTime.now());
+                        //remove the reservation which spent over than 15 mins to confirm
                         if (duration.toMinutes() > 15 && !reservation.isConfirm()) {
                            reservationToRemove = reservation;
                             Broker.findHotelbySerialNum(reservation.getSerialNumOfHotel()).findRoombySerialNum(reservation.getSerialNumOfRoom()).setAvailable(true);

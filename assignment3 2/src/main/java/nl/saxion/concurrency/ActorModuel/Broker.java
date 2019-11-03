@@ -2,6 +2,8 @@ package nl.saxion.concurrency.ActorModuel;
 
 import akka.actor.AbstractActor;
 import akka.actor.ActorSystem;
+import nl.saxion.concurrency.Messages.ConfirmReservation;
+import nl.saxion.concurrency.Messages.CreateHotel;
 import nl.saxion.concurrency.Messages.*;
 import nl.saxion.concurrency.Moduel.Hotel;
 import nl.saxion.concurrency.Moduel.Reservation;
@@ -21,7 +23,7 @@ public class Broker extends AbstractActor {
     @Override
     public Receive createReceive() {
         return receiveBuilder()
-                .match(CreateHotel.class,createHotel -> {
+                .match(CreateHotel.class, createHotel -> {
                    Hotel nwHotel =new Hotel( createHotel.getNwHotel().getNameOfHotel(), createHotel.getNwHotel().getTheAmountOfRooms());
                    hotelList.add(nwHotel);
                 })

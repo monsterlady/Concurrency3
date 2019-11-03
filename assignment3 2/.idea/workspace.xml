@@ -2,7 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1863dc86-3e55-4cb0-bbec-0b3f526f2c66" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/saxion/concurrency/ActorModuel/Broker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/saxion/concurrency/ActorModuel/Broker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/saxion/concurrency/ActorModuel/HotelActor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/saxion/concurrency/CustomRouter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/saxion/concurrency/CustomRouter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nl/saxion/concurrency/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/saxion/concurrency/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/saxion/concurrency/Messages/ConfirmReservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/saxion/concurrency/Messages/ConfirmReservation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/saxion/concurrency/Messages/CreateHotel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/saxion/concurrency/Messages/CreateHotel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/saxion/concurrency/Messages/CreateReservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/saxion/concurrency/Messages/CreateReservation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/saxion/concurrency/Messages/GetAllHotels.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/saxion/concurrency/Messages/GetAllHotels.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/saxion/concurrency/Messages/GetAllReservations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/saxion/concurrency/Messages/GetAllReservations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/saxion/concurrency/Messages/HotelList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/saxion/concurrency/Messages/HotelList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/saxion/concurrency/Messages/RemoveReservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/saxion/concurrency/Messages/RemoveReservation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/saxion/concurrency/Messages/ReservationList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/saxion/concurrency/Messages/ReservationList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/saxion/concurrency/Moduel/Hotel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/saxion/concurrency/Moduel/Hotel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/saxion/concurrency/Moduel/Reservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/saxion/concurrency/Moduel/Reservation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/saxion/concurrency/Moduel/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/saxion/concurrency/Moduel/Room.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/nl/saxion/concurrency/ActorModuel/Broker.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/nl/saxion/concurrency/ActorModuel/Broker.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/nl/saxion/concurrency/ActorModuel/HotelActor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/nl/saxion/concurrency/CustomRouter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/nl/saxion/concurrency/CustomRouter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/nl/saxion/concurrency/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/nl/saxion/concurrency/Main.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,12 +46,6 @@
         <entry key="$PROJECT_DIR$/.." value="master" />
       </map>
     </option>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
-    <option name="width" value="800" />
-    <option name="height" value="538" />
   </component>
   <component name="ProjectId" id="1Sh0WTlgSv3k8R7ZDuPzmH9Exgt" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -67,7 +80,7 @@
       <module name="concurrency" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="nl.saxion.concurrency.*" />
+          <option name="PATTERN" value="nl.saxion.concurrency.Messages.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -103,6 +116,7 @@
       <updated>1572000551218</updated>
       <workItem from="1572000552510" duration="825000" />
       <workItem from="1572710855496" duration="8785000" />
+      <workItem from="1572810354291" duration="3622000" />
     </task>
     <task id="LOCAL-00001" summary="-">
       <created>1572606727225</created>
@@ -125,7 +139,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572771159388</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Ultimate Version V0.1">
+      <created>1572771209435</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1572771209435</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -136,7 +157,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -155,6 +178,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/nl/saxion/concurrency/Moduel/Reservation.java</url>
           <line>65</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/nl/saxion/concurrency/Main.java</url>
+          <line>77</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

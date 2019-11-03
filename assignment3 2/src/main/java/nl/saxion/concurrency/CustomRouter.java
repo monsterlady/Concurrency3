@@ -5,7 +5,6 @@ import akka.actor.ActorSystem;
 import akka.http.javadsl.marshallers.jackson.Jackson;
 import akka.http.javadsl.server.AllDirectives;
 import akka.http.javadsl.server.Route;
-import akka.http.scaladsl.server.PathMatcher;
 import akka.pattern.Patterns;
 import akka.http.javadsl.server.PathMatchers;
 import akka.util.Timeout;
@@ -14,17 +13,12 @@ import nl.saxion.concurrency.Messages.*;
 import nl.saxion.concurrency.Moduel.Hotel;
 import nl.saxion.concurrency.Moduel.Reservation;
 import scala.concurrent.Future;
-import scala.concurrent.duration.FiniteDuration;
-
-
-import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 public class CustomRouter extends AllDirectives {
     private ActorSystem actorSystem;
     private ActorRef broker;
     private final static Timeout timeout = new Timeout(1000, TimeUnit.MILLISECONDS);
-
 
     public CustomRouter(ActorSystem actorSystem, ActorRef broker) {
         this.actorSystem = actorSystem;
