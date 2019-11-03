@@ -1,11 +1,14 @@
 package nl.saxion.concurrency.Messages;
 
+import nl.saxion.concurrency.Moduel.Hotel;
+
 import java.io.Serializable;
 
-public class CreateHotel implements Serializable {
-    public final String message;
+public final class CreateHotel implements Serializable {
 
-    public CreateHotel(String message) {
-        this.message = message;
+    public final Hotel nwHotel;
+
+    public CreateHotel(Hotel message) {
+        this.nwHotel = message;
     }
 }

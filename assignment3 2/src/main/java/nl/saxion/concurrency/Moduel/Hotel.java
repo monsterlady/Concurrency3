@@ -1,5 +1,8 @@
 package nl.saxion.concurrency.Moduel;
 
+import akka.actor.AbstractActor;
+import nl.saxion.concurrency.Moduel.Room;
+
 import java.util.ArrayList;
 import java.util.UUID;
 
@@ -86,4 +89,5 @@ public class Hotel {
                 ", theAmountOfRooms=" + theAmountOfRooms +
                 '}';
     }
+
 }
