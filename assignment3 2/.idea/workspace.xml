@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1863dc86-3e55-4cb0-bbec-0b3f526f2c66" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/saxion/concurrency/ActorModuel/Broker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/saxion/concurrency/ActorModuel/Broker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/saxion/concurrency/CustomRouter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/saxion/concurrency/CustomRouter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nl/saxion/concurrency/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/saxion/concurrency/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/saxion/concurrency/Messages/ConfirmReservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/saxion/concurrency/Messages/ConfirmReservation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/saxion/concurrency/Moduel/Reservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/saxion/concurrency/Moduel/Reservation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/nl/saxion/concurrency/ActorModuel/Broker.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/nl/saxion/concurrency/ActorModuel/Broker.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/nl/saxion/concurrency/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/nl/saxion/concurrency/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/nl/saxion/concurrency/Moduel/Reservation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/nl/saxion/concurrency/Moduel/Reservation.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -126,7 +118,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572766718290</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Ultimate Version V0.1">
+      <created>1572771159388</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1572771159388</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -146,7 +145,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="-" />
     <MESSAGE value="Except Auto Delete all the function works" />
-    <option name="LAST_COMMIT_MESSAGE" value="Except Auto Delete all the function works" />
+    <MESSAGE value="Ultimate Version V0.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ultimate Version V0.1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

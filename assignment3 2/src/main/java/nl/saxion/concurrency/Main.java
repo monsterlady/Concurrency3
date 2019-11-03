@@ -69,7 +69,7 @@ public class Main {
                     Reservation reservationToRemove = new Reservation();
                     for (Reservation reservation : reservationArrayList) {
                         Duration duration = Duration.between(reservation.getReservationCreatedTime(), LocalDateTime.now());
-                        if (duration.toMillis() > 15000 && !reservation.isConfirm()) {
+                        if (duration.toMinutes() > 15 && !reservation.isConfirm()) {
                            reservationToRemove = reservation;
                             Broker.findHotelbySerialNum(reservation.getSerialNumOfHotel()).findRoombySerialNum(reservation.getSerialNumOfRoom()).setAvailable(true);
                         }
