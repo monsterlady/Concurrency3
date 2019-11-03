@@ -32,6 +32,7 @@ public class Broker extends AbstractActor {
                    // findHotelbySerialNum(createReservation.getReservation().getSerialNumOfHotel()).findRoombySerialNum(createReservation.getReservation().getSerialNumOfRoom()).setAvailable(false);
                 })
                 .match(ConfirmReservation.class, confirmReservation-> {
+                   findReservationBySerialNum(confirmReservation.getSerialNum()).setConfirm(true);
                    findHotelbySerialNum(confirmReservation.getSerialNumOfHotel()).findRoombySerialNum(confirmReservation.getSerialNumOfRoom()).setAvailable(false);
                 })
                 .match(GetAllReservations.class,getAllReservations -> getSender().tell(new ReservationList(reservationList),getSelf()))
@@ -48,6 +49,10 @@ public class Broker extends AbstractActor {
 
     public static List<Reservation> getReservationList() {
         return reservationList;
+    }
+
+    public static void setReservationList(List<Reservation> reservationList) {
+        Broker.reservationList = reservationList;
     }
 
     public static Hotel findHotelbySerialNum(String uuid){

@@ -31,7 +31,6 @@ public class CustomRouter extends AllDirectives {
         this.broker = broker;
     }
 
-
     public Route allroutes(){
         return route(
                path("newhotel",() -> route(createNewHotel())),
@@ -115,10 +114,15 @@ public class CustomRouter extends AllDirectives {
                                     } else {
                                         Reservation reservation = Broker.findReservationBySerialNum(reservationSerialNum);
                                         assert reservation != null;
-                                        Patterns.ask(broker, new ConfirmReservation(reservation.getSerialNumOfHotel(),reservation.getSerialNumOfRoom()), timeout);
-                                        return complete("Thanks for the confirmation, The Room "+ reservation.getSerialNumOfRoom() + " of " + Broker.findHotelbySerialNum(reservation.getSerialNumOfHotel()).getNameOfHotel()+ " has been confirmed.\n"
-                                        + "You could cancel it anytime by click the link below:\n" + "http://localhost:3000/cancel/"+ reservationSerialNum
-                                        );
+                                        if(Broker.findHotelbySerialNum(reservation.getSerialNumOfHotel()).findRoombySerialNum(reservation.getSerialNumOfRoom()).isAvailable()){
+                                            Patterns.ask(broker, new ConfirmReservation(reservation.getSerialNumOfHotel(),reservation.getSerialNumOfRoom(),reservation.getSerialNum()), timeout);
+                                            return complete("Thanks for the confirmation, The Room "+ reservation.getSerialNumOfRoom() + " of " + Broker.findHotelbySerialNum(reservation.getSerialNumOfHotel()).getNameOfHotel()+ " has been confirmed.\n"
+                                                    + "You could cancel it anytime by click the link below:\n" + "http://localhost:3000/cancel/"+ reservationSerialNum
+                                            );
+                                        } else {
+                                            return complete("This room has been reserved already");
+                                        }
+
                                     }
 
                                 }))

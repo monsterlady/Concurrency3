@@ -10,12 +10,14 @@ public class Reservation {
     private String serialNum;
     private int serialNumOfRoom;
     private String serialNumOfHotel;
+    private boolean isConfirm;
     private LocalDateTime reservationCreatedTime;
 
     public Reservation(int serialNumOfRoom, String serialNumOfHotel) {
         this.serialNum = UUID.randomUUID().toString();
         this.serialNumOfRoom = serialNumOfRoom;
         this.serialNumOfHotel = serialNumOfHotel;
+        this.isConfirm =false;
         this.reservationCreatedTime = LocalDateTime.now();
     }
 
@@ -23,13 +25,23 @@ public class Reservation {
         this.serialNum = serialNum;
         this.serialNumOfRoom = serialNumOfRoom;
         this.serialNumOfHotel = serialNumOfHotel;
+        this.isConfirm =false;
         this.reservationCreatedTime = LocalDateTime.now();
+    }
+
+    public boolean isConfirm() {
+        return isConfirm;
+    }
+
+    public void setConfirm(boolean confirm) {
+        isConfirm = confirm;
     }
 
     public Reservation() {
         this.serialNum = UUID.randomUUID().toString();
         this.serialNumOfRoom = 0;
         this.serialNumOfHotel = "";
+        this.isConfirm =false;
         this.reservationCreatedTime = LocalDateTime.now();
     }
 
@@ -52,6 +64,7 @@ public class Reservation {
     @Override
     public String toString() {
         return "Reservation{ \n" +
+                "Confirm Status : " + isConfirm + '\n' +
                 "Reservation Code : " + serialNum + '\n' +
                 "Room Code : " + serialNumOfRoom +  '\n' +
                  "Hotel Code : " + serialNumOfHotel + '\n' +

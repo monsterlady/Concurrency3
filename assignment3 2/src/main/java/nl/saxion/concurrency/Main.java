@@ -15,9 +15,12 @@ import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
 import nl.saxion.concurrency.ActorModuel.Broker;
 import nl.saxion.concurrency.Moduel.Hotel;
+import nl.saxion.concurrency.Moduel.Reservation;
+
 import java.net.InetAddress;
-import java.util.ArrayList;
-import java.util.List;
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.util.*;
 
 
 public class Main {
@@ -55,6 +58,32 @@ public class Main {
 
         System.out.println("Server online at http://localhost:3000/");
         //#http-server
+
+        //check if reservation overdue
+        new Timer().scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public  void run() {
+                List<Reservation> reservationArrayList = Broker.getReservationList();
+                Collections.sort(reservationArrayList, Comparator.comparing(Reservation::getReservationCreatedTime));
+                if(reservationArrayList.size() > 0) {
+                    Reservation reservationToRemove = new Reservation();
+                    for (Reservation reservation : reservationArrayList) {
+                        Duration duration = Duration.between(reservation.getReservationCreatedTime(), LocalDateTime.now());
+                        if (duration.toMillis() > 15000 && !reservation.isConfirm()) {
+                           reservationToRemove = reservation;
+                            Broker.findHotelbySerialNum(reservation.getSerialNumOfHotel()).findRoombySerialNum(reservation.getSerialNumOfRoom()).setAvailable(true);
+                        }
+                    }
+                   Broker.getReservationList().remove(reservationToRemove);
+                }
+
+            }
+        },0,3000 );
+    }
+
+    private synchronized static void remove (Reservation reservation){
+        Broker.getReservationList().remove(reservation);
+
     }
 
     public Main(ActorSystem actorSystem,ActorRef broker) {
