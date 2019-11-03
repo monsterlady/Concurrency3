@@ -8,25 +8,37 @@ import akka.http.javadsl.Http;
 import akka.http.javadsl.model.HttpRequest;
 import akka.http.javadsl.model.HttpResponse;
 import akka.http.javadsl.server.Route;
+import akka.pattern.AskTimeoutException;
 import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
 import nl.saxion.concurrency.ActorModuel.Broker;
 import nl.saxion.concurrency.Moduel.Hotel;
-
 import java.net.InetAddress;
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class Main {
-    private final Routers allroutes;
+    private final CustomRouter allroutes;
     public static List<Hotel> hotelList = new ArrayList<>();
 
-    public static void main(String[] args) {
-        ActorSystem system = ActorSystem.create("TeunKok & Ruikang Xu Assignment3",getConfig(args));
-        ActorRef broker = system.actorOf(Props.create(Broker.class,system),"My broker");
+    public static void main(String[] args) throws AskTimeoutException {
+        ActorSystem system = ActorSystem.create("TeunKokRuikangXuAssignment3",getConfig(args));
+        ActorRef broker = system.actorOf(Props.create(Broker.class,system),"Mybroker");
+
+
+
+        int nrOfHotels = 3;
+        for (int i = 0; i < nrOfHotels; i++) {
+            Hotel nwHotel = new Hotel("Bestitz:" + (i + 1), 2);
+            Broker.getHotelList().add(nwHotel);
+           // ActorRef hotelManager = system.actorOf(Props.create(HotelManager.class, h), "hotel:" + i);
+           // routees.add(new ActorRefRoutee(hotelManager));
+        }
+       // routerBroker = new Router(new RoundRobinRoutingLogic(), routees);
+
         final Http http = Http.get(system);
         final ActorMaterializer materializer = ActorMaterializer.create(system);
         //#server-bootstrapping
@@ -38,14 +50,15 @@ public class Main {
         Main app = new Main(system,broker);
 
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = app.createRoute().flow(system, materializer);
-        http.bindAndHandle(routeFlow, ConnectHttp.toHost("localhost", 3000), materializer);
+        http.bindAndHandle(routeFlow, ConnectHttp.toHost("localhost", 3000), materializer)
+        ;
 
         System.out.println("Server online at http://localhost:3000/");
         //#http-server
     }
 
     public Main(ActorSystem actorSystem,ActorRef broker) {
-        allroutes = new Routers(actorSystem,broker);
+        allroutes = new CustomRouter(actorSystem,broker);
     }
 
     /**

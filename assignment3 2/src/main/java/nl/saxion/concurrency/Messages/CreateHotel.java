@@ -11,4 +11,8 @@ public final class CreateHotel implements Serializable {
     public CreateHotel(Hotel message) {
         this.nwHotel = message;
     }
+
+    public Hotel getNwHotel() {
+        return nwHotel;
+    }
 }

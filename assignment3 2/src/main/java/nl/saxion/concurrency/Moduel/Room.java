@@ -10,6 +10,11 @@ public class Room {
         this.isAvailable = isAvailable;
     }
 
+    public Room() {
+        this.numOfRoom = -1;
+        this.isAvailable = false;
+    }
+
     public int getSerialNum() {
         return numOfRoom;
     }
